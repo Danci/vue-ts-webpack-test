@@ -28,7 +28,7 @@ export default Vue.extend({
         exclamationMarks(): string {
             let result:string[] = [];
             for (let i = 1; i<= this.enthusiasm; i++) result.push('!');
-            return result.join('');
+            return result.join('') + '?';
         }
     }
 });

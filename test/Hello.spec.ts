@@ -8,7 +8,11 @@ describe('HelloComponent', () => {
     // Inspect the raw component options
     let wrapper: Wrapper<any>;
     beforeEach(() => {
-        wrapper = shallow(HelloComponent);
+        wrapper = shallow(HelloComponent, {
+            propsData: {
+                initialEnthusiasm: 10
+            }
+        });
 
     });
 
@@ -16,14 +20,26 @@ describe('HelloComponent', () => {
         expect(wrapper.find('div').text()).includes("Hi for you:");
         expect(wrapper.find('div').text()).includes("+");
         expect(wrapper.find('div').text()).includes("-");
+        expect(wrapper.find('div').text()).includes("!!!!!!!!!!");
+        expect(wrapper.find('div').text()).not.includes("!!!!!!!!!!!");
     })
 
-    it('reacts on buttons', () => {
-        expect(wrapper.find('div').text()).includes("Hi for you:");
-        expect(wrapper.find('div').text()).includes("+");
-        expect(wrapper.find('div').text()).includes("-");
+    it('reacts on + button', () => {
+        let button = wrapper.find('button + button');
+        expect(button.text()).to.equal("+");
+        button.trigger('click');
+        expect(wrapper.find('div').text()).includes("!!!!!!!!!!!");
+        expect(wrapper.find('div').text()).not.includes("!!!!!!!!!!!!");
     })
-    
+
+    it('reacts on - button', () => {
+        let button = wrapper.find('button');
+        expect(button.text()).to.equal("-");
+        button.trigger('click');
+        expect(wrapper.find('div').text()).includes("!!!!!!!!!");
+        expect(wrapper.find('div').text()).not.includes("!!!!!!!!!!");
+    })
+
     /*// Evaluate the results of functions in
     // the raw component options
     it('sets the correct default data', () => {

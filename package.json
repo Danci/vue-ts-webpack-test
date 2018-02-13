@@ -7,8 +7,8 @@
     "old-test-not-working-but-in-json-there-are-no-comments": "mocha -r ts-node/register src/**/*.spec.ts",
     "build": "webpack --config webpack.prod.js",
     "start": "webpack-dev-server --open --config webpack.dev.js",
-    "test": "mocha-webpack --webpack-config webpack.config.js --require test/setup.js test/**/*.spec.ts",
-    "test:watch": "mocha-webpack -w --webpack-config webpack.config.js --require test/setup.js test/**/*.spec.ts"
+    "test": "mocha-webpack --webpack-config webpack.dev.js --require test/setup.js test/**/*.spec.ts",
+    "test:watch": "mocha-webpack -w --webpack-config webpack.dev.js --require test/setup.js test/**/*.spec.ts"
   },
   "author": "",
   "license": "ISC",
