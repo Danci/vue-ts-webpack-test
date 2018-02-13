@@ -4,21 +4,38 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "webpack",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "old-test-not-working-but-in-json-there-are-no-comments": "mocha -r ts-node/register src/**/*.spec.ts",
+    "build": "webpack --config webpack.prod.js",
+    "start": "webpack-dev-server --open --config webpack.dev.js",
+    "test": "mocha-webpack --webpack-config webpack.config.js --require test/setup.js test/**/*.spec.ts",
+    "test:watch": "mocha-webpack -w --webpack-config webpack.config.js --require test/setup.js test/**/*.spec.ts"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "vue": "^2.5.13",
-    "vue-property-decorator": "^6.0.0"
+    "vue": "^2.5.13"
   },
   "devDependencies": {
+    "@types/chai": "^4.1.2",
+    "@types/mocha": "^2.2.48",
+    "@vue/test-utils": "^1.0.0-beta.11",
+    "chai": "^4.1.2",
+    "clean-webpack-plugin": "^0.1.18",
     "css-loader": "^0.28.9",
+    "html-webpack-plugin": "^2.30.1",
+    "jsdom": "^11.6.2",
+    "jsdom-global": "^3.0.2",
+    "mocha": "^5.0.0",
+    "mocha-webpack": "^1.0.1",
     "ts-loader": "^3.5.0",
+    "ts-node": "^4.1.0",
     "typescript": "^2.7.1",
+    "uglifyjs-webpack-plugin": "^1.1.8",
     "vue-loader": "^14.1.1",
     "vue-template-compiler": "^2.5.13",
-    "webpack": "^3.11.0"
+    "webpack": "^3.11.0",
+    "webpack-dev-server": "^2.11.1",
+    "webpack-merge": "^4.1.1",
+    "webpack-node-externals": "^1.6.0"
   }
 }

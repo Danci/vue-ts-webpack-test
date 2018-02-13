@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="greeting">Hello {{name}}{{exclamationMarks}}</div>
+        <div class="greeting">Hi for you: {{name}}{{exclamationMarks}}</div>
         <button @click="decrement">-</button>
         <button @click="increment">+</button>
     </div>
@@ -26,7 +26,9 @@ export default Vue.extend({
     },
     computed: {
         exclamationMarks(): string {
-            return Array(this.enthusiasm + 1).join('!');
+            let result:string[] = [];
+            for (let i = 1; i<= this.enthusiasm; i++) result.push('!');
+            return result.join('');
         }
     }
 });
