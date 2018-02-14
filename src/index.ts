@@ -1,16 +1,21 @@
 import Vue from "vue";
-import HelloComponent from "./components/Hello.vue";
+import BootstrapVue from 'bootstrap-vue';
+import '../node_modules/bootstrap/dist/css/bootstrap.css';
+import '../node_modules/bootstrap-vue/dist/bootstrap-vue.css';
+import App from "./components/App.vue";
 
+console.log("bootstrap vue: ", BootstrapVue);
+Vue.use(BootstrapVue);
 let v = new Vue({
     el: "#app",
     template: `
     <div>
-        Name: <input v-model="name" type="text">
-        <hello-component :name="name" :initialEnthusiasm="5" />
+        <b-btn variant="primary">sdfg</b-btn>
+        <App />
     </div>
     `,
-    data: { name: "World" },
+    //data: { name: "World" },
     components: {
-        HelloComponent
+        App
     }
 });

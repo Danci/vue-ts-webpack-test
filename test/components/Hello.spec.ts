@@ -1,6 +1,6 @@
 import { shallow, Wrapper } from '@vue/test-utils';
 import { expect } from 'chai';
-import HelloComponent from '../src/components/Hello.vue';
+import HelloComponent from '../../src/components/Hello.vue';
 
 // Here are some Jasmine 2.0 tests, though you can
 // use any test runner / assertion library combo you prefer
@@ -17,7 +17,7 @@ describe('HelloComponent', () => {
     });
 
     it('has the basic elements', () => {
-        expect(wrapper.find('div').text()).includes("Hi for you:");
+        expect(wrapper.find('div').text()).includes("Hello for you:");
         expect(wrapper.find('div').text()).includes("+");
         expect(wrapper.find('div').text()).includes("-");
         expect(wrapper.find('div').text()).includes("!!!!!!!!!!");
@@ -25,7 +25,7 @@ describe('HelloComponent', () => {
     })
 
     it('reacts on + button', () => {
-        let button = wrapper.find('button + button');
+        let button = wrapper.find('b-button + b-button');
         expect(button.text()).to.equal("+");
         button.trigger('click');
         expect(wrapper.find('div').text()).includes("!!!!!!!!!!!");
@@ -33,7 +33,7 @@ describe('HelloComponent', () => {
     })
 
     it('reacts on - button', () => {
-        let button = wrapper.find('button');
+        let button = wrapper.find('b-button');
         expect(button.text()).to.equal("-");
         button.trigger('click');
         expect(wrapper.find('div').text()).includes("!!!!!!!!!");

@@ -1,8 +1,8 @@
 <template>
     <div>
-        <div class="greeting">Hi for you: {{name}}{{exclamationMarks}}</div>
-        <button @click="decrement">-</button>
-        <button @click="increment">+</button>
+        <div class="greeting">Hello for you: {{name}}{{exclamationMarks}}</div>
+        <b-button @click="decrement">-</b-button>
+        <b-button @click="increment">+</b-button>
     </div>
 </template>
 
@@ -34,7 +34,7 @@ export default Vue.extend({
 });
 </script>
 
-<style>
+<style scope>
 .greeting {
     font-size: 20px;
 }
